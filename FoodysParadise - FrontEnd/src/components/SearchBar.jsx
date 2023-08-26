@@ -10,7 +10,7 @@ export default function SearchBar({onSearch}) {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/search?searchTerm=${searchInput}`);
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/api/search?searchTerm=${searchInput}`);
 
       onSearch(response.data); // Pass the search results to the parent component
     } catch (error) {

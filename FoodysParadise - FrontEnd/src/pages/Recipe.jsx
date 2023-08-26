@@ -20,7 +20,7 @@ const Recipe = () => {
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/recipe/${recipeName}`).then(res => {
+    axios.get(`${process.env.REACT_APP_SERVER}/api/recipe/${recipeName}`).then(res => {
       setRecipe(res.data);
       console.log(recipeName);
     });

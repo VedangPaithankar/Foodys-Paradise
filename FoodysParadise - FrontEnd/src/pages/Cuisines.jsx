@@ -12,7 +12,7 @@ const CuisineRecipes = () => {
 
     useEffect(() => {
         // Use Axios to fetch recipes for the specific cuisine from your API
-        axios.get(`http://localhost:5000/api/cuisine/${cuisine}`)
+        axios.get(`${process.env.REACT_APP_SERVER}/api/cuisine/${cuisine}`)
             .then(response => {
                 // Assuming your API returns an array of recipes in response.data
                 setRecipes(response.data);

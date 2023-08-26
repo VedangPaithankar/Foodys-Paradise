@@ -25,7 +25,7 @@ const MyFridge = () => {
   const handleSubmit = async () => {
     try {
       console.log(ingredients);
-      const response = await axios.get(`http://localhost:5000/api/myfridge?ingredients=${ingredients}`);
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/api/myfridge?ingredients=${ingredients}`);
       console.log(response);
       // Assuming response.data contains an array of recipe objects
       const recipeCards = response.data.map((recipe, index) => (
