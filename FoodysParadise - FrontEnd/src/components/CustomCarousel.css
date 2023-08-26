@@ -1,0 +1,42 @@
+.carousel-container {
+    width: 75%; /* Set the carousel container width to cover 75% of the screen */
+    margin: auto; /* Center the carousel container on the screen */
+    position: relative; /* Create a relative positioning context */
+  }
+  
+  .carousel-container .carousel-root {
+    width: 100%; /* Set the carousel width to 100% to fill the container */
+  }
+  
+  .carousel-container .carousel-slider {
+    width: 100%; /* Set the slider width to 100% to fill the container */
+  }
+  
+  .carousel-container .carousel-dots {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .carousel-container .carousel-dots li {
+    display: inline-block;
+    margin: 0 5px;
+    list-style: none;
+  }
+  
+  .carousel-container .carousel-dots li button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .carousel-container .carousel-dots li.slick-active button {
+    background-color: #fff;
+  }
