@@ -15,7 +15,8 @@ export default function SearchBar({onSearch}) {
       onSearch(response.data); // Pass the search results to the parent component
     } catch (error) {
       console.error("Search error:", error);
-      console.log('Search Term:', searchInput);
+      console.log('Env',`${process.env.REACT_APP_SERVER}/api/search?searchTerm=${searchInput}`);
+      //console.log('Search Term:', searchInput);
     }
   };
 
