@@ -1,0 +1,66 @@
+/* Navbar.css */
+.navbar {
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .nav-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-brand img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .menu-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .dot {
+    height: 5px;
+    width: 5px;
+    background-color: black;
+    border-radius: 50%;
+    display: block;
+    margin: 2px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media screen and (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav-brand {
+      margin-bottom: 10px;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  
+    .navbar.menu-open .mobile-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      margin-top: 10px;
+      padding: 0;
+    }
+  
+    .mobile-menu {
+      display: none;
+    }
+  }
+  

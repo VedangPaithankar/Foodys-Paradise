@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export default function Card(props) {
   return (
-    <div className="card custom-font w-72 h-72 m-2">
+    <div className="card-image custom-font w-72 h-72 m-2">
       <div className="box-wrapper w-full h-3/4 rounded-lg overflow-hidden">
         <img
           src={props.image}

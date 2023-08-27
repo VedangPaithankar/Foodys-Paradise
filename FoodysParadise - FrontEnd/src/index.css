@@ -18,10 +18,6 @@
   color: white;
 }
 
-.custom-footer {
-  background-color: #121212;
-}
-
 .corousel-font{
   font-family: "Century Gothic", sans-serif;
   font-weight: bold;
@@ -97,11 +93,6 @@
   padding: 10px 20px; /* Adjust the padding to make the button bigger */
   border-radius: 30px;
 }
-
-.recipe-card-link {
-  text-decoration: none;
-}
-
 .card-image {
   width: 100%;
   height: 200px; /* Set a fixed height for the card images */

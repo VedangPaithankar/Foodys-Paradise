@@ -1,0 +1,48 @@
+/* PopularCuisines.css */
+.custom-font {
+    font-family: "Century Gothic", sans-serif;
+    color: black;
+}
+  
+.popular-cuisines-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+  
+/* Card Styles */
+.recipe-card-link {
+    text-decoration: none;
+    width: calc(20% - 20px);
+    flex: 1; /* Add flex: 1 to make sure cards distribute evenly */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+  
+.card-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+  
+.card-image {
+    width: 100%; /* Set width to 100% to maintain aspect ratio */
+    max-height: 200px; /* Set a maximum height to control image size */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .card-title {
+        font-size: 16px;
+    }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import './Footer.css';
 
 export default function Footer() {
   return (
@@ -7,14 +8,13 @@ export default function Footer() {
         {/* Footer content */}
         <div className="d-lg-flex justify-content-between align-items-center px-4">
           {/* Image on the left */}
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center footer-content">
             <img
-              src="/Assets/Logo.svg" // Replace with the correct path to your logo image
+              src="/Assets/Logo.svg"
               alt="Foodys Paradise Logo"
-              style={{ width: "300px", height: "300px" }} // Adjust the size as needed
-              className="mr-20"
+              className="mr-20 footer-logo"
             />
-            <div className="ms-3 text-center text-lg custom-font-white">
+            <div className="ms-3 text-center text-lg footer-text">
               <p>
                 Welcome to Foodys Paradise, your ultimate destination for
                 mouthwatering recipes and culinary inspiration! At Foodys
