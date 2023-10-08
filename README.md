@@ -28,10 +28,6 @@ We welcome contributions from the community! If you'd like to contribute to Food
 
 If you encounter any issues or want to report a bug, please open an issue on our [Issue Tracker](https://github.com/yourusername/foodys-paradise/issues).
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
 If you have any questions or need further assistance, feel free to contact us at [your@email.com](mailto:your@email.com).
