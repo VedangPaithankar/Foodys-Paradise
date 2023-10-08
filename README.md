@@ -16,10 +16,6 @@ Check out the Behance design of our website for a visual overview: [Web Design](
 
 This project was developed using the MERN (MongoDB, Express, React, Node.js) stack.
 
-## Getting Started ⚙️
-
-(Provide instructions on how to get started with your project, including installation, configuration, and usage details.)
-
 ## Contributing 🤝
 
 We welcome contributions from the community! If you'd like to contribute to Foodys Paradise, please follow our [Contributing Guidelines](CONTRIBUTING.md).
