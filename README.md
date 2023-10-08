@@ -1,4 +1,4 @@
-<img align="center" src="./Fotter.png" alt="vedang_1122" width="auto" height="auto"/>
+<img align="center" src="./Footter.png" alt="vedang_1122" width="auto" height="auto"/>
 
 # Foodys Paradise
 
