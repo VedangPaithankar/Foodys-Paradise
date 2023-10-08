@@ -1,3 +1,5 @@
+<img align="center" src="./Footer.png" alt="vedang_1122" width="auto" height="auto"/>
+
 # Foodys Paradise
 
 Welcome to Foodys Paradise, a culinary adventure where you can discover over 5000+ delectable recipes. Unleash the magic of our ingenious feature - effortlessly input fridge items and unleash a flood of personalized recipe recommendations. Elevate your cooking experience now!
