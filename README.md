@@ -18,7 +18,7 @@ This project was developed using the MERN (MongoDB, Express, React, Node.js) sta
 
 ## Contributing 🤝
 
-We welcome contributions from the community! If you'd like to contribute to Foodys Paradise, please follow our [Contributing Guidelines](CONTRIBUTING.md).
+We welcome contributions from the community! If you'd like to contribute to Foodys Paradise.
 
 ## Issues and Bug Reports 🐛
 
