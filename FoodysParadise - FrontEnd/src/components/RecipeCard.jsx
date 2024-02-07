@@ -10,7 +10,7 @@ const RecipeCard = (props) => {
             <div className="w-3/5 h-110">
               <img
                 src={props.imageurl}
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-100 object-cover rounded-lg"
                 alt=""
               />
             </div>
