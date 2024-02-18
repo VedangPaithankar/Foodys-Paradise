@@ -30,7 +30,7 @@ const Recipe = () => {
     <>
       <div className="container">
         <h1 className='underline mt-3 mb-12 custom-font'>{recipe.TranslatedRecipeName}</h1>
-        <img className='w-full rounded-3xl h-40 mb-20 drop-shadow-5xl' src={recipe.imageurl} alt="" />
+        <img className='w-full rounded-3xl h-40 md:h-[640px] mb-20 drop-shadow-5xl' src={recipe.imageurl} alt="" />
         <div className="row mb-10">
           <div className="col-md-6">
             <h3 className='custom-font-bold underline mb-3 ml-10'>Ingredients</h3>
