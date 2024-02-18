@@ -1,28 +1,29 @@
 import React from "react";
-import './Footer.css';
+import Logo from '../assets/Logo.webp';
 
 export default function Footer() {
   return (
-    <div className="custom-footer py-10 custom-font">
-      <footer className="container text-white text-center text-lg-start">
-        {/* Footer content */}
-        <div className="d-lg-flex justify-content-between align-items-center px-4">
-          {/* Image on the left */}
-          <div className="md:d-flex align-items-center footer-content">
+    <div className="bg-[#121212] py-10 custom-font">
+      <footer className="container text-white text-center lg:text-left">
+        <div className="lg:flex lg:justify-between lg:items-center px-4">
+          <div className="flex items-center">
             <img
-              src="/Assets/Logo.svg"
+              src={Logo}
               alt="Foodys Paradise Logo"
-              className="md:mr-20 h-[30px] md:h-[100px] footer-logo"
+              className="mr-8 h-24 md:h-[50px] lg:h-32"
             />
-            <div className="ms-3 text-lg footer-text text-justify">
-              <p>
+            <div className="text-lg lg:text-left">
+              <p className="text-justify">
                 Welcome to Foodys Paradise, your ultimate destination for
-                mouthwatering recipes and culinary inspiration! At Foodys
-                Paradise, we believe that food is not just a necessity but a
-                delightful experience that brings people together. Whether
+                mouthwatering recipes and culinary inspiration! Whether
                 you're a seasoned chef or a novice cook, our recipe website is
                 designed to cater to all your gastronomic needs, helping you
-                create delectable dishes from the comfort of your own kitchen. - Vedang Paithankar :)
+                create delectable dishes from the comfort of your own kitchen. 
+                <br />
+                <br />
+                <span className="text-right">
+                - Vedang Paithankar :)
+                </span>
               </p>
             </div>
           </div>
