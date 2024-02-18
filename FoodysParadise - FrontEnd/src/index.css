@@ -2,24 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: coolvetica;
+  src: url("./assets/fonts/coolvetica rg.otf") format("opentype");
+}
+
 .custom-font {
-  font-family: "Century Gothic", sans-serif;
-  color: black;
-}
-
-.custom-font-bold {
-  font-weight: bolder;
-  font-family: "Century Gothic", sans-serif;
-  color: black;
-}
-
-.custom-font-white {
-  font-family: "Century Gothic", sans-serif;
-  color: white;
+  font-family:coolvetica;
+  font-weight: 600;
 }
 
 .corousel-font{
-  font-family: "Century Gothic", sans-serif;
+  font-family: coolvetica;
   font-weight: bold;
   text-decoration: underline;
   justify-self: left;

@@ -100,7 +100,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/myfridge" element={<MyFridge />} />
+          <Route path="/fridge" element={<MyFridge />} />
           <Route path="/recipe/:recipeName" element={<Recipe />} />
           <Route path="/cuisine/:cuisine" element={<Cuisines />} />
         </Routes>

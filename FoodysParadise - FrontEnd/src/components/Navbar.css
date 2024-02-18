@@ -1,51 +1,53 @@
-/* Navbar.css */
-.navbar {
-  justify-content: space-between;
-  padding: 10px;
-  align-items: center; /* Center items vertically */
+.underline-effect {
+  position: relative;
+  color: #D1547E;
 }
 
-.nav-brand {
-  display: flex;
-  align-items: center;
+.underline-effect::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #D1547E;
+  transition: all 0.4s ease-in-out;
+  left: 50%;
+  bottom: -5px;
+
 }
 
-.nav-brand img {
-  width: 100px;
-  height: auto;
+.underline-effect:hover::after {
+  width: 100%;
+  left: 0;
 }
 
-.menu-icon {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: none;
+/*Chaning UNderline*/
+.underline-effect-pink {
+position: relative;
+color: #D1547E;
 }
 
-.hidden {
-  display: none;
+.underline-effect-pink::after {
+content: "";
+position: absolute;
+width: 0%;
+height: 2px;
+background-color: #D1547E;
+transition: all 0.4s ease-in-out;
+left: 50%;
+bottom: -5px;
+
 }
 
-/* Responsive adjustments for smaller screens */
-@media screen and (max-width: 768px) {
-  .navbar {
-      flex-direction: row;
-      justify-content: center;
-  }
+.underline-effect-pink:hover::after {
+width: 100%;
+left: 0;
+}
 
-  .nav-brand {
-      justify-content: center; /* Adjust margin to 5% on the right */
-  }
+.nav-link {
+  color: black;
+  transition: color 0.3s ease;
+}
 
-  .navcen{
-    justify-items: center;
-  }
-  
-  .hidtitle{
-    display: none;
-  }
-  .logoadjust{
-    
-    justify-content: center;
-  }
+.nav-link:hover {
+  color: #D1547E;
 }
