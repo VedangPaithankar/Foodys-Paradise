@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Mogent';
+  src: url("../assets//fonts/Mogent.otf");
+}
+
+.custom-font {
+  font-family: Mogent;
+}
+
 .underline-effect {
   position: relative;
   color: #D1547E;
@@ -12,7 +21,6 @@
   transition: all 0.4s ease-in-out;
   left: 50%;
   bottom: -5px;
-
 }
 
 .underline-effect:hover::after {
@@ -20,34 +28,23 @@
   left: 0;
 }
 
-/*Chaning UNderline*/
 .underline-effect-pink {
-position: relative;
-color: #D1547E;
+  position: relative;
+  color: #D1547E;
 }
 
 .underline-effect-pink::after {
-content: "";
-position: absolute;
-width: 0%;
-height: 2px;
-background-color: #D1547E;
-transition: all 0.4s ease-in-out;
-left: 50%;
-bottom: -5px;
-
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #D1547E;
+  transition: all 0.4s ease-in-out;
+  left: 50%;
+  bottom: -5px;
 }
 
 .underline-effect-pink:hover::after {
-width: 100%;
-left: 0;
-}
-
-.nav-link {
-  color: black;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #D1547E;
+  width: 100%;
+  left: 0;
 }

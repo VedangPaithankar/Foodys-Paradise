@@ -10,8 +10,8 @@ export default function Search() {
     setSearchResults(results);
   };
   return (
-    <div>
-      <SearchBar onSearch={handleSearch} />
+    <div className='mt-[70px]'>
+      <SearchBar onSearch={handleSearch}/>
       <div>
         {searchResults.map((recipe) => (
           <RecipeCard key={recipe.id} {...recipe}/>

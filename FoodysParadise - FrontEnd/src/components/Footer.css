@@ -14,11 +14,7 @@
     justify-content: center; /* Horizontally center the content */
     text-align: center; /* Center text */
   }
-  
-  .footer-text {
-    font-family: "Century Gothic", sans-serif;
-    color: white;
-  }
+
   
   @media screen and (max-width: 768px) {
     .footer-logo {

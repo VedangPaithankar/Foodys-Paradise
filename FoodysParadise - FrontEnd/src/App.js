@@ -112,7 +112,7 @@ export default function App() {
 function Home() {
   return (
     <>
-      <CustomCarousel />
+      <CustomCarousel className="mt-[40px]" />
       <PopularCuisines />
       <h2 className="custom-font ml-5 mt-10 mb-5">Handpicked Recommendations</h2>
       <RecipeCard {...Recipesarray[0]} />

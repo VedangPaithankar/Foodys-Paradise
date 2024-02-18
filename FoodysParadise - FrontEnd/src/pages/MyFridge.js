@@ -40,8 +40,8 @@ const MyFridge = () => {
   
 
   return (
-    <div className="mt-[100px] p-4 mx-auto w-[90%]">
-      <p className="text-[30px] font-bold">
+    <div className="custom-font mt-[100px] p-4 mx-auto w-[90%]">
+      <p className="md:text-[30px] font-bold">
         Unleash your pantry's secrets, and we'll whip up the perfect recipes just for you!
       </p>
       {ingredients.map((ingredient, index) => (

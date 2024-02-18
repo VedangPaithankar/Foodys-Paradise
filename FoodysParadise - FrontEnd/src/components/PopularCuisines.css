@@ -1,9 +1,3 @@
-/* PopularCuisines.css */
-.custom-font {
-    font-family: "Century Gothic", sans-serif;
-    color: black;
-}
-  
 .popular-cuisines-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -19,7 +13,8 @@
 .recipe-card-link {
     text-decoration: none;
     width: calc(20% - 20px);
-    flex: 1; /* Add flex: 1 to make sure cards distribute evenly */
+    flex: 1; 
+    color: #000;
 }
 
 .card {

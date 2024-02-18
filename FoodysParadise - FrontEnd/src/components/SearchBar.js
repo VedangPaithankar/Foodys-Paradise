@@ -22,13 +22,13 @@ export default function SearchBar({onSearch}) {
 
   return (
     <div className="search-container">
-      <img className="background-image mb-10" src="./Assets/Group.svg" alt="HEHE" />
+      <img className="background-image mb-10" src="./assets/Group.svg" alt="HEHE" />
       <div className="search-content">
         <div className="input-group">
-          <img className="ml-2 mr-4" src="./Assets/SearchIcon.svg" alt="HEHE" />
+          <img className="ml-2 mr-4 h-[30px] mt-[4px] md:mt-0" src="./assets/SearchIcon.svg" alt="HEHE" />
           <input
             type="search"
-            className="form-control rounded mt-1 custom-font"
+            className="form-control rounded md:mt-1 custom-font"
             placeholder="Search"
             aria-label="Search"
             aria-describedby="search-addon"
@@ -36,7 +36,7 @@ export default function SearchBar({onSearch}) {
             onChange={handleInputChange} // Call the handler when input changes
           />
           <button 
-            type="button" className="outline-primary custom-font-white overlap-button"
+            type="button" className="outline-primary custom-font"
             onClick={handleSearch}>
             See Results
           </button>

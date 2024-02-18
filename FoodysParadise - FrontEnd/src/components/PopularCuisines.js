@@ -6,9 +6,9 @@ import './PopularCuisines.css';
 
 export default function PopularCuisines() {
   return (
-    <>
+    <div>
       <h2 className='mt-10 ml-5 mb-10 custom-font'>Popular Cuisines</h2>
-      <div className= 'popular-cuisines-container flex-row'>
+      <div className= 'popular-cuisines-container md:flex-row w-[95%]'>
         <Link to="/cuisine/Italian" className='recipe-card-link'>
           <Card title="Italian Cuisine" image="https://www.tastingtable.com/img/gallery/20-italian-dishes-you-need-to-try-at-least-once/l-intro-1643403830.jpg" />
         </Link>
@@ -25,6 +25,6 @@ export default function PopularCuisines() {
           <Card title="Thai Cuisine" image="https://mobile-cuisine.com/wp-content/uploads/2021/07/pinoythaiyo-lolas-kitchen-3-1024x768-1.jpg" />
         </Link>
       </div>
-    </>
+    </div>
   );
 }

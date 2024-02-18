@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 const RecipeCard = (props) => {
   return (
     <Link className="no-underline" to={`/recipe/${props.TranslatedRecipeName}`}>
-      <div className="flex justify-center items-center">
-        <div className="card mb-3 w-5/6 border-0 rounded-lg overflow-hidden">
-          <div className="flex">
-            <div className="w-3/5 h-110">
+      <div className="flex justify-center items-center drop-shadow w-[95%] mx-auto">
+        <div className="card mb-3 border-0 rounded-lg overflow-hidden">
+          <div className="md:flex">
+            <div className="h-110">
               <img
                 src={props.imageurl}
-                className="w-full h-[500px] object-cover rounded-lg"
+                className="mx-auto w-[1000px] h-[300px] md:h-[500px] object-cover rounded-lg"
                 alt=""
               />
             </div>
-            <div className="w-2/5 p-4">
-              <p className="custom-font font-bold underline text-xl">
+            <div className="p-2">
+              <p className="custom-font font-bold text-xl">
                 {props.TranslatedRecipeName}
               </p>
               <p className="custom-font font-bold">Cooking Time</p>

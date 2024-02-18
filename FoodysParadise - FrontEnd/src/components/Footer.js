@@ -3,18 +3,18 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <div className="custom-footer py-10">
+    <div className="custom-footer py-10 custom-font">
       <footer className="container text-white text-center text-lg-start">
         {/* Footer content */}
         <div className="d-lg-flex justify-content-between align-items-center px-4">
           {/* Image on the left */}
-          <div className="d-flex align-items-center footer-content">
+          <div className="md:d-flex align-items-center footer-content">
             <img
               src="/Assets/Logo.svg"
               alt="Foodys Paradise Logo"
-              className="mr-20 footer-logo"
+              className="md:mr-20 h-[30px] md:h-[100px] footer-logo"
             />
-            <div className="ms-3 text-center text-lg footer-text">
+            <div className="ms-3 text-lg footer-text text-justify">
               <p>
                 Welcome to Foodys Paradise, your ultimate destination for
                 mouthwatering recipes and culinary inspiration! At Foodys
