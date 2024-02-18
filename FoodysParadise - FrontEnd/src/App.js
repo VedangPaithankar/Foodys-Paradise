@@ -114,10 +114,12 @@ function Home() {
     <>
       <CustomCarousel className="mt-[40px]" />
       <PopularCuisines />
-      <h2 className="custom-font ml-5 mt-10 mb-5">Handpicked Recommendations</h2>
-      <RecipeCard {...Recipesarray[0]} />
-      <RecipeCard {...Recipesarray[1]} />
-      <RecipeCard {...Recipesarray[2]} />
+      <h2 className="custom-font ml-5 md:ml-[75px] mt-10 mb-5">Handpicked Recommendations</h2>
+      <div className='w-[96%] mx-auto'>
+        <RecipeCard {...Recipesarray[0]} />
+        <RecipeCard {...Recipesarray[1]} />
+        <RecipeCard {...Recipesarray[2]} />
+      </div>
       <Footer />
     </>
   );

@@ -7,8 +7,8 @@ import './PopularCuisines.css';
 export default function PopularCuisines() {
   return (
     <div>
-      <h2 className='mt-10 ml-5 mb-10 custom-font'>Popular Cuisines</h2>
-      <div className= 'popular-cuisines-container md:flex-row w-[95%]'>
+      <h2 className='mt-10 ml-5 md:ml-[75px] mb-10 custom-font'>Popular Cuisines</h2>
+      <div className= 'popular-cuisines-container md:flex gap-10 w-[92%]'>
         <Link to="/cuisine/Italian" className='recipe-card-link'>
           <Card title="Italian Cuisine" image="https://www.tastingtable.com/img/gallery/20-italian-dishes-you-need-to-try-at-least-once/l-intro-1643403830.jpg" />
         </Link>
