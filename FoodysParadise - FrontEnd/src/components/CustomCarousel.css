@@ -1,4 +1,5 @@
 .carousel-container {
+    margin-top: 12%;
     width: 75%; /* Set the carousel container width to cover 75% of the screen */
     margin: auto; /* Center the carousel container on the screen */
     position: relative; /* Create a relative positioning context */
