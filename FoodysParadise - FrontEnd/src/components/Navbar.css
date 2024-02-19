@@ -10,7 +10,7 @@
 
 .underline-effect {
   position: relative;
-  color: #D1547E;
+  color: #000000;
 }
 
 .underline-effect::after {
