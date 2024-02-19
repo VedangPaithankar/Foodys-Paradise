@@ -111,7 +111,7 @@ export default function App() {
 
 function Home() {
   return (
-    <div className="mt-[80px]">
+    <div className="mt-[80px] mr-2">
       <CustomCarousel />
       <PopularCuisines />
       <h2 className="custom-font ml-5 md:ml-[75px] mt-10 mb-5">Handpicked Recommendations</h2>
