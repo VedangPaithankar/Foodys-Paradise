@@ -28,7 +28,7 @@ const Recipe = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container mt-[80px]">
         <h1 className='underline mt-3 mb-12 custom-font'>{recipe.TranslatedRecipeName}</h1>
         <img className='w-full rounded-3xl object-cover h-40 md:h-[640px] mb-20 drop-shadow-5xl' src={recipe.imageurl} alt="" />
         <div className="row mb-10">
