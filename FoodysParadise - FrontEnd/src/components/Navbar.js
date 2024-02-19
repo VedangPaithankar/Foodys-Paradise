@@ -46,9 +46,9 @@ function Navbar() {
                 </div>
                 {/* Mobile Menu Links */}
                 <div className={`md:mt-4 text-xl md:text-lg text-center justify-center md:flex md:gap-2 items-center ${isMobileMenuOpen ? 'flex flex-col open' : 'hidden'}`}>
-                    <Link to="/" className="no-underline underline-effect-pink hover:text-[#D1547E] mb-4 md:mr-2" onClick={handleLinkClick}>Home</Link>
-                    <Link to="/search" className="no-underline underline-effect-pink hover:text-[#D1547E] mb-4 md:mr-2" onClick={handleLinkClick}>Search</Link>
-                    <Link to="/fridge" className="no-underline underline-effect-pink hover:text-[#D1547E] mb-4 md:mr-2" onClick={handleLinkClick}>MyFridge</Link>
+                    <Link to="/" className="no-underline underline-effect-pink hover:text-[#000000] mb-4 md:mr-2" onClick={handleLinkClick}>Home</Link>
+                    <Link to="/search" className="no-underline underline-effect-pink hover:text-[#000000] mb-4 md:mr-2" onClick={handleLinkClick}>Search</Link>
+                    <Link to="/fridge" className="no-underline underline-effect-pink hover:text-[#000000] mb-4 md:mr-2" onClick={handleLinkClick}>MyFridge</Link>
                 </div>
             </div>
         </nav>
