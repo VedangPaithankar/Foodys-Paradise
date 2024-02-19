@@ -115,7 +115,7 @@ function Home() {
       <CustomCarousel />
       <PopularCuisines />
       <h2 className="custom-font ml-5 md:ml-[75px] mt-10 mb-5">Handpicked Recommendations</h2>
-      <div className='w-[90%] mx-auto'>
+      <div className='mx-auto'>
         <RecipeCard {...Recipesarray[0]} />
         <RecipeCard {...Recipesarray[1]} />
         <RecipeCard {...Recipesarray[2]} />
