@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import image from "../assets/SearchIcon.svg";
+import bg from "../assets/Group.svg";
 
 export default function SearchBar({onSearch}) {
   const [searchInput, setSearchInput] = useState("");
@@ -22,10 +24,10 @@ export default function SearchBar({onSearch}) {
 
   return (
     <div className="search-container">
-      <img className="background-image mb-10" src="./assets/Group.svg" alt="HEHE" />
+      <img className="background-image mb-10" src={bg} alt="HEHE" />
       <div className="search-content">
         <div className="input-group">
-          <img className="ml-2 mr-4 h-[30px] mt-[4px] md:mt-0" src="./assets/SearchIcon.svg" alt="HEHE" />
+          <img className="ml-2 mr-4 h-[30px] mt-[4px] md:mt-0" src={image} alt="HEHE" />
           <input
             type="search"
             className="form-control rounded md:mt-1 custom-font"
