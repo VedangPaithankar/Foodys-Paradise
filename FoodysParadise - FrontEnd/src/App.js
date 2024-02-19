@@ -112,7 +112,7 @@ export default function App() {
 function Home() {
   return (
     <>
-      <CustomCarousel className="mt-[40px]" />
+      <CustomCarousel className="mt-[140px]" />
       <PopularCuisines />
       <h2 className="custom-font ml-5 md:ml-[75px] mt-10 mb-5">Handpicked Recommendations</h2>
       <div className='w-[96%] mx-auto'>
