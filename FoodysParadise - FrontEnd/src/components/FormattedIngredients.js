@@ -7,10 +7,10 @@ const FormattedSteps = ({ stepsString }) => {
   const steps = stepsAndIngredients.slice(1);
 
   return (
-    <div>
+    <div className='custom-font'>
       <ol>
         {ingredients.split(',').map((ingredient, index) => (
-          <li className='custom-font mb-3' key={index}>{ingredient.trim()}</li>
+          <li className='custom-font mb-3 text-xs md:text-base' key={index}>{ingredient.trim()}</li>
         ))}
       </ol>
       <ol>

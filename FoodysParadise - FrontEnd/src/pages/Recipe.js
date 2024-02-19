@@ -28,18 +28,18 @@ const Recipe = () => {
 
   return (
     <>
-      <div className="container mt-[80px]">
-        <h1 className='underline mt-3 mb-12 custom-font'>{recipe.TranslatedRecipeName}</h1>
-        <img className='w-full rounded-3xl object-cover h-40 md:h-[640px] mb-20 drop-shadow-5xl' src={recipe.imageurl} alt="" />
+      <div className="container mt-[120px]">
+        <h1 className='underline mt-3 mb-8 md:mb-12 custom-font text-[20px] md:text-xl'>{recipe.TranslatedRecipeName}</h1>
+        <img className='w-full rounded-3xl object-cover h-40 md:h-[640px] mb-10 md:mb-20 drop-shadow-5xl' src={recipe.imageurl} alt="" />
         <div className="row mb-10">
           <div className="col-md-6">
-            <h3 className='custom-font-bold underline mb-3 ml-10'>Ingredients</h3>
+            <h3 className='custom-font'>Ingredients</h3>
             <ol>
               <FormattedIngredients stepsString={recipe.TranslatedIngredients} />
             </ol>
           </div>
-          <div className="col-md-6 border-l-2 border-black pl-8">
-            <h3 className='custom-font-bold underline mb-3 ml-10'>Instructions</h3>
+          <div className="col-md-6">
+            <h3 className='custom-font'>Instructions</h3>
             <ol className='custom-font'>
               <FormattedInstrustions stepsString={recipe.TranslatedInstructions} />
             </ol>
