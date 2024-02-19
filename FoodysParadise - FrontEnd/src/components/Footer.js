@@ -12,7 +12,7 @@ export default function Footer() {
               alt="Foodys Paradise Logo"
               className="mr-8 h-24 md:h-[50px] lg:h-32"
             />
-            <div className="text-lg lg:text-left">
+            <div className="text-sm md:text-lg lg:text-left">
               <p className="text-justify">
                 Welcome to Foodys Paradise, your ultimate destination for
                 mouthwatering recipes and culinary inspiration! Whether
