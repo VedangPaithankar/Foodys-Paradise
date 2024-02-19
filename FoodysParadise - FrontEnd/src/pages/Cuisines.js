@@ -25,7 +25,7 @@ const CuisineRecipes = () => {
 
     return (
         <>
-        <div className="mt-[100px]>
+        <div className="mt-40 md:mt-[100px]">
             <h2 className='ml-10 mt-4 custom-font'>Recipes for {cuisine} Cuisine</h2>
             {recipes.map(recipe => (
                 <RecipeCard key={recipe.id} {...recipe} />
