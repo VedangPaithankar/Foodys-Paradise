@@ -1,7 +1,7 @@
 // SearchBar.js
 import React, { useState } from "react";
 import image from "../assets/SearchIcon.svg";
-import bg from "../assets/Group.svg";
+import bg from "../assets/Group.webp";
 
 export default function SearchBar({ onSearch }) {
   const [searchInput, setSearchInput] = useState("");
