@@ -2,6 +2,7 @@ const Recipe = require("../models/Recipe");
 
 const recommendRecipes = async (req, res) => {
   try {
+    console.log(req);
     const { ingredients } = req.query;
     console.log(ingredients);
 
@@ -22,7 +23,6 @@ const recommendRecipes = async (req, res) => {
 
     console.log("query", query);
     const RecipeArray = await Recipe.find(query);
-    console.log(RecipeArray);
     res.json(RecipeArray);
   } catch (error) {
     console.error(error);

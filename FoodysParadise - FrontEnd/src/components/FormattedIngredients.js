@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FormattedSteps = ({ stepsString }) => {
+const FormattedIngredients = ({ stepsString }) => {
   const stepsAndIngredients = stepsString.split('\n').map(item => item.trim()).filter(item => item !== '');
   
   const ingredients = stepsAndIngredients[0];
@@ -10,16 +10,16 @@ const FormattedSteps = ({ stepsString }) => {
     <div className='custom-font'>
       <ol>
         {ingredients.split(',').map((ingredient, index) => (
-          <li className='custom-font mb-3 text-xs md:text-base' key={index}>{ingredient.trim()}</li>
+            <li className='custom-font text-xs md:text-base mb-2' key={index}>{ingredient.trim()}</li>
         ))}
       </ol>
       <ol>
         {steps.map((step, index) => (
-          <li className='custom-font mb-3' key={index}>{index + 1}) {step}</li>
+          <li className='custom-font' key={index}>{index + 1}) {step}</li>
         ))}
       </ol>
     </div>
   );
 };
 
-export default FormattedSteps;
+export default FormattedIngredients;

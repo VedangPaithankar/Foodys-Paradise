@@ -5,25 +5,33 @@ const RecipeCard = (props) => {
   return (
     <Link className="no-underline" to={`/recipe/${props.TranslatedRecipeName}`}>
       <div className="flex justify-center items-center drop-shadow w-[95%] mx-auto">
-        <div className="card mb-3 border-0 rounded-lg overflow-hidden">
+        <div className="card mb-3 border-0 rounded-lg overflow-hidden w-full">
           <div className="md:flex">
             <div className="h-110">
               <img
                 src={props.imageurl}
-                className="mx-auto w-[1000px] h-[300px] md:h-[500px] object-cover rounded-lg"
+                className="mx-auto w-[800px] h-[300px] md:h-[500px] object-cover rounded-lg"
                 alt=""
               />
             </div>
-            <div className="p-2">
+            <div className="p-2 md:ml-10">
               <p className="custom-font font-bold text-xl">
                 {props.TranslatedRecipeName}
               </p>
-              <p className="custom-font font-bold">Cooking Time</p>
-              <p className="custom-font">{props.TotalTimeInMins}</p>
-              <p className="custom-font font-bold">Cuisine</p>
-              <p className="custom-font">{props.Cuisine}</p>
-              <p className="custom-font font-bold">Ingredient Count</p>
-              <p className="custom-font">{props.Ingredientcount}</p>
+              <div className="mt-10">
+                <div className="flex md:flex-col">
+                  <p className="custom-font font-bold">Cooking Time</p>
+                  <p className="custom-font font-light">&#160;-&#160;{props.TotalTimeInMins}&#160;minutes</p>
+                </div>
+                <div className="flex md:flex-col">
+                  <p className="custom-font font-bold">Cuisine:</p>
+                  <p className="custom-font font-light">&#160;-&#160;{props.Cuisine}</p>
+                </div>
+                <div className="flex md:flex-col">
+                  <p className="custom-font font-bold">Ingredient Count</p>
+                  <p className="custom-font font-light">&#160;-&#160;{props.Ingredientcount}&#160;ingredients</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

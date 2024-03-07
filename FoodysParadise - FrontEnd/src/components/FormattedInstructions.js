@@ -8,7 +8,7 @@ const FormattedSteps = ({ stepsString }) => {
       <div className='custom-font mb-3 text-xs md:text-base'>{ingredients}</div>
       <ol>
         {steps.map((step, index) => (
-          <li className='custom-font mb-3 text-xs md:text-base' key={index}>{index + 1}) {step}</li>
+          <li className='custom-font mb-2 text-xs md:text-base' key={index}>{index + 1}) {step}</li>
         ))}
       </ol>
     </div>

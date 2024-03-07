@@ -17,21 +17,21 @@ export default function CustomCarousel() {
       <Carousel>
         <Carousel.Item>
           <img
-            className="d-block h-[220px] md:h-[750px] w-full"
+            className="d-block w-full aspect-video"
             src="https://wallpaperaccess.com/full/5912737.jpg"
             alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block h-[220px] md:h-[750px] w-full"
+            className="d-block w-full aspect-video"
             src="https://free4kwallpapers.com/uploads/originals/2015/05/04/pasta-plate.jpg"
             alt="Second slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block h-[220px] md:h-[750px] w-full"
+            className="d-block w-full aspect-video"
             src="https://wallpaperaccess.com/full/8300573.jpg"
             alt="Third slide"
           />
