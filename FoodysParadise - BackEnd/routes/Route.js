@@ -7,7 +7,7 @@ const { cuisineFinder } = require('../controllers/CuisineFinder'); // Import cui
 const { totalPages } = require('../controllers/TotalPages'); 
 
 router.get('/search', searchRecipes);
-router.get('/myfridge', recommendRecipes);
+router.get('/fridge', recommendRecipes);
 router.get('/recipe/:recipeName', recipeFinder);
 router.get('/cuisine/:cuisine', cuisineFinder);
 router.get('/totalPages/:searchInput', totalPages);
