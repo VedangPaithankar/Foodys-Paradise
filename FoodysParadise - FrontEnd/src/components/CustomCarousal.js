@@ -7,7 +7,7 @@ export default function CustomCarousel() {
       style={{
         width: "90%",
         margin: "20px auto", // Add 20px margin on top and bottom, and auto margin on left and right
-        margin: "40px",
+        //margin: "40px",
         maxWidth: "1920px",
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Add drop shadow
       }}
@@ -17,33 +17,21 @@ export default function CustomCarousel() {
       <Carousel>
         <Carousel.Item>
           <img
-<<<<<<< HEAD
-            className="d-block w-full aspect-video"
-=======
             className="d-block h-[220px] md:h-[750px] w-full object-cover"
->>>>>>> f7d9ce1c58513934cf5005cb0514c47823244bec
             src="https://wallpaperaccess.com/full/5912737.jpg"
             alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-<<<<<<< HEAD
-            className="d-block w-full aspect-video"
-=======
             className="d-block h-[220px] md:h-[750px] w-full object-cover"
->>>>>>> f7d9ce1c58513934cf5005cb0514c47823244bec
             src="https://free4kwallpapers.com/uploads/originals/2015/05/04/pasta-plate.jpg"
             alt="Second slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-<<<<<<< HEAD
-            className="d-block w-full aspect-video"
-=======
             className="d-block h-[220px] md:h-[750px] w-full object-cover"
->>>>>>> f7d9ce1c58513934cf5005cb0514c47823244bec
             src="https://wallpaperaccess.com/full/8300573.jpg"
             alt="Third slide"
           />
