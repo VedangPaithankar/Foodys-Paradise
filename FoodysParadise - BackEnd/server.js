@@ -21,7 +21,7 @@ app.use("/api", routes);
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static("FoodysParadise - FrontEnd\build"));
+  app.use(express.static('../FoodysParadise - FrontEnd/build'));
 
   // For any request that doesn't match a specific route, serve index.html
   app.get("*", (req, res) => {
