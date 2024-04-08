@@ -20,7 +20,7 @@ export default function SearchBar({ onSearch }) {
       <div className="search-content">
         <div className="input-group">
           <img
-            className="ml-2 mr-4 h-[30px] mt-[4px] md:mt-0"
+            className="px-[5px]"
             src={image}
             alt="HEHE"
           />
@@ -37,6 +37,11 @@ export default function SearchBar({ onSearch }) {
             type="button"
             className="outline-primary custom-font"
             onClick={handleSearch}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                handleSearch();
+              }
+            }}
           >
             See Results
           </button>
