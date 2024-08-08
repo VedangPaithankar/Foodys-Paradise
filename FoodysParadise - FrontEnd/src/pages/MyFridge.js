@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
+import './MyFridge.css';
+
+const ITEMS_PER_PAGE = 10;
 
 const MyFridge = () => {
   const [ingredients, setIngredients] = useState([""]);
   const [recommendedRecipeCards, setRecommendedRecipeCards] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleInputChange = (index, value) => {
     const updatedIngredients = [...ingredients];
@@ -23,21 +30,59 @@ const MyFridge = () => {
   };
 
   const handleSubmit = async () => {
+    setIsLoading(true);
+    setError(null);
     try {
-      console.log(ingredients);
-      const response = await axios.get(`${process.env.REACT_APP_SERVER}/api/myfridge?ingredients=${ingredients}`);
-      console.log(response);
-      // Assuming response.data contains an array of recipe objects
-      const recipeCards = response.data.map((recipe, index) => (
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/api/myfridge`, {
+        params: {
+          ingredients: ingredients.join(","),
+          page: currentPage,
+          limit: ITEMS_PER_PAGE
+        }
+      });
+      const recipes = response.data;
+      if (!Array.isArray(recipes)) {
+        throw new Error('Invalid response structure');
+      }
+      const recipeCards = recipes.map((recipe, index) => (
         <RecipeCard key={index} {...recipe} />
       ));
       setRecommendedRecipeCards(recipeCards);
+      setTotalPages(1); // Adjust this as needed
     } catch (error) {
-      // Handle errors appropriately
       console.error("Error:", error);
+      setError("An error occurred while fetching recipes.");
+    } finally {
+      setIsLoading(false);
+    }
+  };  
+  
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+      handleSubmit(); // Re-fetch recipes for the new page
     }
   };
-  
+
+  const renderPagination = () => {
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(
+        <button
+          key={i}
+          className={`py-2 px-4 rounded ${i === currentPage ? 'bg-yellow-500' : 'bg-yellow-300'} mx-1`}
+          onClick={() => handlePageChange(i)}
+        >
+          {i}
+        </button>
+      );
+    }
+    return (
+      <div className="flex justify-center my-4">
+        {pages}
+      </div>
+    );
+  };
 
   return (
     <div className="custom-font mt-[100px] p-4 mx-auto w-[90%]">
@@ -80,10 +125,24 @@ const MyFridge = () => {
         type="button"
         className="bg-green-500 text-white px-4 py-2 rounded-full"
         onClick={handleSubmit}
-        >
+      >
         Submit
       </button>
-      {recommendedRecipeCards}
+      {isLoading ? (
+        <div className="skeleton-wrapper my-8">
+          <div className="skeleton skeleton-image mb-4"></div>
+          <div className="skeleton skeleton-text mb-4"></div>
+          <div className="skeleton skeleton-text mb-4"></div>
+          <div className="skeleton skeleton-text mb-4"></div>
+        </div>
+      ) : error ? (
+        <p>{error}</p>
+      ) : (
+        <div>
+          {recommendedRecipeCards}
+          {totalPages > 1 && renderPagination()}
+        </div>
+      )}
     </div>
   );
 };

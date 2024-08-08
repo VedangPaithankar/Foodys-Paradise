@@ -1,15 +1,15 @@
-
+/* Flex row container for smaller screens */
 .flex-row {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
-  
+
 /* Card Styles */
 .recipe-card-link {
     text-decoration: none;
-    width: calc(20% - 20px);
-    flex: 1; 
+    width: calc(20% - 20px); /* Adjust width based on layout */
+    flex: 1;
     color: #000;
 }
 
@@ -18,22 +18,56 @@
     flex-direction: column;
     border: 1px solid #ddd;
     padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
 }
-  
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .card-title {
     font-size: 18px;
     margin-bottom: 10px;
 }
-  
+
 .card-image {
-    width: 100%; /* Set width to 100% to maintain aspect ratio */
-    max-height: 200px; /* Set a maximum height to control image size */
-    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    width: 100%;
+    max-height: 200px; /* Ensure image fits well */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 4px;
 }
 
-/* Responsive adjustments for smaller screens */
+/* Base styles for pagination buttons */
+.button {
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+.button:hover {
+    background-color: #f7c20e;
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
+    .button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
     .card-title {
         font-size: 16px;
+    }
+
+    .recipe-card-link {
+        width: calc(50% - 20px); /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 767px) {
+    .button {
+        font-size: 12px;
+        padding: 6px 12px;
     }
 }

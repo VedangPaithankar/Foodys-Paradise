@@ -1,22 +1,34 @@
 const RecipeDB = require("../models/Recipe");
 
-const recipeFinder = async (req, res) => {
-    const recipeName = req.params.recipeName; // Get the recipe name from the route parameter
-    console.log(recipeName);
-    try {
-      const query = {
-        TranslatedRecipeName: recipeName // Use the extracted recipe name in the query
-      };
-      const Recipe = await RecipeDB.findOne(query);
-      console.log(query)
-      console.log(Recipe);
-      res.json(Recipe);
-    } catch (error) {
-      console.error("Search error:", error);
-      res
-        .status(500)
-        .json({ error: `An error occurred while searching. ${recipeName}` });
-    }
-  };
+// Function to find recipes by ingredients
+const recipeFinderByIngredients = async (req, res) => {
+  const { ingredients, page, limit } = req.query;
+  try {
+    const recipes = await RecipeDB.find({ ingredients: { $in: ingredients.split(',') } })
+                                  .limit(parseInt(limit))
+                                  .skip((parseInt(page) - 1) * parseInt(limit));
+    const total = await RecipeDB.countDocuments({ ingredients: { $in: ingredients.split(',') } });
+    res.json({ recipes, total });
+  } catch (error) {
+    console.error("Search error:", error);
+    res.status(500).json({ error: 'An error occurred while searching.' });
+  }
+};
 
-module.exports = { recipeFinder };
+// Function to find a recipe by name
+const recipeFinderByName = async (req, res) => {
+  const { recipeName } = req.params;
+  try {
+    const recipe = await RecipeDB.findOne({ TranslatedRecipeName: recipeName });
+    if (recipe) {
+      res.json(recipe);
+    } else {
+      res.status(404).json({ error: 'Recipe not found' });
+    }
+  } catch (error) {
+    console.error('Error fetching recipe:', error);
+    res.status(500).json({ error: 'An error occurred while fetching the recipe' });
+  }
+};
+
+module.exports = { recipeFinderByIngredients, recipeFinderByName };

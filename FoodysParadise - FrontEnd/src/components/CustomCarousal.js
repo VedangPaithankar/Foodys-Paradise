@@ -25,7 +25,7 @@ export default function CustomCarousel() {
         <Carousel.Item>
           <img
             className="d-block h-[220px] md:h-[750px] w-full object-cover"
-            src="https://free4kwallpapers.com/uploads/originals/2015/05/04/pasta-plate.jpg"
+            src="https://img.freepik.com/premium-photo/juicy-burger-board-black-background-dark-background-fast-food-traditional-american-food-copy-space_124865-6813.jpg"
             alt="Second slide"
           />
         </Carousel.Item>
