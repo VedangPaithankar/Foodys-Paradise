@@ -1,11 +1,13 @@
 name: Deploy FP Backend
-on: 
+
+on:
   push:
     branches:
       - main
     paths:
       - 'backend/**'
       - '.github/workflows/deploy-fp-backend.yml'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -26,9 +28,9 @@ jobs:
           push: true
           tags: vedangpaithankar/foodysparadise:latest
   
-  deploy: 
+  deploy:
     needs: build
-    runs-on: self-hosted 
+    runs-on: self-hosted
     steps:
       - name: Pull image from Docker Hub
         run: docker pull vedangpaithankar/foodysparadise:latest
