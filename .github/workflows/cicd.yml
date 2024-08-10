@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'backend/**'
+      - 'FoodysParadise - BackEnd/**'
       - '.github/workflows/deploy-fp-backend.yml'
   workflow_dispatch:
 
