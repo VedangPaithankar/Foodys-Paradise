@@ -1,11 +1,13 @@
 name: Deploy FP Backend
-on: 
+
+on:
   push:
     branches:
       - main
     paths:
-      - 'backend/**'
+      - 'FoodysParadise - BackEnd/**'
       - '.github/workflows/deploy-fp-backend.yml'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,14 +23,14 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: ./backend
-          file: ./backend/Dockerfile
+          context: ./FoodysParadise - BackEnd
+          file: ./FoodysParadise - BackEnd/Dockerfile
           push: true
           tags: vedangpaithankar/foodysparadise:latest
   
-  deploy: 
+  deploy:
     needs: build
-    runs-on: self-hosted 
+    runs-on: self-hosted
     steps:
       - name: Pull image from Docker Hub
         run: docker pull vedangpaithankar/foodysparadise:latest
