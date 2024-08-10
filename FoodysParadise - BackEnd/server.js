@@ -19,7 +19,7 @@ mongoose
 
 // Define a test route to check server status
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Foodys Paradise Backend");
 });
 
 app.use("/api", routes);
