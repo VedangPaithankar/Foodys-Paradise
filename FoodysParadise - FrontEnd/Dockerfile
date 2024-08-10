@@ -1,5 +1,9 @@
 FROM node:alpine3.20 as build
 
+ARG REACT_APP_SERVER
+
+ENV REACT_APP_SERVER=$REACT_APP_SERVER
+
 # Build App
 WORKDIR /app
 COPY package.json .
