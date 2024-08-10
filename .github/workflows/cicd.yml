@@ -23,8 +23,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: ./backend
-          file: ./backend/Dockerfile
+          context: ./FoodysParadise - BackEnd
+          file: ./FoodysParadise - BackEnd/Dockerfile
           push: true
           tags: vedangpaithankar/foodysparadise:latest
   
