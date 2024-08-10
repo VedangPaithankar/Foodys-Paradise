@@ -25,7 +25,7 @@ export default function CustomCarousel() {
         <Carousel.Item>
           <img
             className="d-block h-[220px] md:h-[750px] w-full object-cover"
-            src="https://img.freepik.com/premium-photo/juicy-burger-board-black-background-dark-background-fast-food-traditional-american-food-copy-space_124865-6813.jpg"
+            src="https://images.unsplash.com/photo-1703848987117-0bd6015474b7?q=80&w=1771&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Second slide"
           />
         </Carousel.Item>
