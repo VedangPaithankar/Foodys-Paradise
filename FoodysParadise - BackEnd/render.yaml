@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: Foodys-Paradise
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    routes:
+      - type: rewrite
+        source: /.*
+        destination: /index.html

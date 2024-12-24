@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
-const path = require("path"); // Import path module
+const path = require("path");
 
 const routes = require("./routes/Route");
 const app = express();
@@ -17,11 +17,7 @@ mongoose
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
-// Define a test route to check server status
-app.get("/", (req, res) => {
-  res.send("Foodys Paradise Backend");
-});
-
+// Define API routes
 app.use("/api", routes);
 
 // Serve static assets if in production
@@ -29,10 +25,15 @@ if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static(path.join(__dirname, "../FoodysParadise - FrontEnd/build")));
 
-  // For any request that doesn't match a specific route, serve index.html
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../FoodysParadise - FrontEnd/build", "index.html"));
-  }); 
+  // Fallback to React's index.html for unknown routes
+  app.use((req, res, next) => {
+    if (!req.originalUrl.startsWith('/api')) {
+        res.sendFile(path.resolve(__dirname, "../FoodysParadise - FrontEnd/build", "index.html"));
+    } else {
+        next();
+    }
+  });
 }
 
-app.listen(PORT, () => console.log(`Listening at ${PORT}`));
+// Start the server
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
