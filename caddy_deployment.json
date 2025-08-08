@@ -21,7 +21,7 @@
   "dependencies": [
     "nodejs",
     "npm",
-    "mongodb",
+    "mongodb-org",
     "sqlite3",
     "git",
     "net-tools",
