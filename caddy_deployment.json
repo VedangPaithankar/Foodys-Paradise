@@ -22,7 +22,7 @@
   "dependencies": [
     "nodejs",
     "npm",
-    "mongodb",
+    "mongodb-mongosh",
     "git",
     "net-tools",
     "jq"
