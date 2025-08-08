@@ -1,0 +1,27 @@
+{
+  "project_name": "Foodys-Paradise",
+  "type": "mern",
+  "frontend": {
+    "directory": "client",
+    "build_command": "npm install && npm start",
+    "env": {
+      "PORT": "DYNAMIC"
+    }
+  },
+  "backend": {
+    "directory": "server",
+    "build_command": "npm install && npm start",
+    "env": {
+      "PORT": "DYNAMIC",
+      "MONGODB_URI": "mongodb://localhost:27017/Foodys-Paradise"
+    }
+  },
+  "dependencies": [
+    "nodejs",
+    "npm",
+    "mongodb",
+    "sqlite3",
+    "git",
+    "net-tools"
+  ]
+}
