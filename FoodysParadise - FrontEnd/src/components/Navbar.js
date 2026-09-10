@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/Logo.webp';
+import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
 
 function Navbar() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const navigate = useNavigate();
+    const { isLoggedIn, logout } = useAuth();
+
+    const handleLogout = () => {
+        logout();
+        navigate('/');
+    };
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!isMobileMenuOpen);
     };
@@ -49,6 +56,17 @@ function Navbar() {
                     <Link to="/" className="no-underline underline-effect-pink text-[#000000] mb-4 md:mr-2" onClick={handleLinkClick}>Home</Link>
                     <Link to="/search" className="no-underline underline-effect-pink text-[#000000] mb-4 md:mr-2" onClick={handleLinkClick}>Search</Link>
                     <Link to="/fridge" className="no-underline underline-effect-pink text-[#000000] mb-4 md:mr-2" onClick={handleLinkClick}>MyFridge</Link>
+                    {isLoggedIn ? (
+                        <>
+                            <Link to="/favorites" className="no-underline underline-effect-pink text-[#000000] mb-4 md:mr-2" onClick={handleLinkClick}>Favorites</Link>
+                            <button onClick={handleLogout} className="no-underline underline-effect-pink text-[#000000] mb-4 md:mr-2 bg-transparent border-0 cursor-pointer">Log out</button>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/login" className="no-underline underline-effect-pink text-[#000000] mb-4 md:mr-2" onClick={handleLinkClick}>Log in</Link>
+                            <Link to="/signup" className="no-underline underline-effect-pink text-[#000000] mb-4 md:mr-2" onClick={handleLinkClick}>Sign up</Link>
+                        </>
+                    )}
                 </div>
             </div>
         </nav>

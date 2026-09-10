@@ -1,0 +1,45 @@
+name: phase5
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: foodys_paradise
+      POSTGRES_USER: foodys_paradise
+      POSTGRES_PASSWORD: foodys_paradise
+    ports:
+      # 5435, not 5434/6380 (Phase 4's ports) or 5000 (the old Node backend's)
+      - "5435:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U foodys_paradise"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend-java:
+    build: ./backend-java
+    ports:
+      - "8081:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/foodys_paradise
+      SPRING_DATASOURCE_USERNAME: foodys_paradise
+      SPRING_DATASOURCE_PASSWORD: foodys_paradise
+      ML_SERVICE_BASE_URL: http://ml-service:8000
+
+  ml-service:
+    build: ./ml-service
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://foodys_paradise:foodys_paradise@postgres:5432/foodys_paradise
+
+volumes:
+  pg-data:

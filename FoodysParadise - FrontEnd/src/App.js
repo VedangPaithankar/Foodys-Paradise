@@ -9,6 +9,10 @@ import Search from './pages/Search';
 import MyFridge from './pages/MyFridge';
 import Recipe from './pages/Recipe';
 import Cuisines from './pages/Cuisines';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Favorites from './pages/Favorites';
+import { AuthProvider } from './context/AuthContext';
 
 const Recipesarray = [
   {
@@ -94,18 +98,23 @@ const Recipesarray = [
 
 export default function App() {
   return (
-    <Router>
-      <>
-        <Navbar title="Foodys Paradise" />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/fridge" element={<MyFridge />} />
-          <Route path="/recipe/:recipeName" element={<Recipe />} />
-          <Route path="/cuisine/:cuisine" element={<Cuisines />} />
-        </Routes>
-      </>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <>
+          <Navbar title="Foodys Paradise" />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/fridge" element={<MyFridge />} />
+            <Route path="/recipe/:recipeName" element={<Recipe />} />
+            <Route path="/cuisine/:cuisine" element={<Cuisines />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/favorites" element={<Favorites />} />
+          </Routes>
+        </>
+      </Router>
+    </AuthProvider>
   );
 }
 

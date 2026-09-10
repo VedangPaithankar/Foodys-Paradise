@@ -57,7 +57,6 @@ const Recipe = () => {
     TranslatedRecipeName,
     TranslatedIngredients,
     TranslatedInstructions,
-    URL,
     imageurl,
   } = recipe;
 

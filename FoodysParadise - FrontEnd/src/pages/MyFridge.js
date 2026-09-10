@@ -1,17 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
+import { useAuth } from "../context/AuthContext";
 import './MyFridge.css';
 
 const ITEMS_PER_PAGE = 10;
 
 const MyFridge = () => {
+  const { isLoggedIn } = useAuth();
   const [ingredients, setIngredients] = useState([""]);
   const [recommendedRecipeCards, setRecommendedRecipeCards] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState(null);
+
+  // Prefill from the saved fridge when logged in, so ingredients aren't
+  // retyped on every visit -- the old app had no accounts, so this is new.
+  useEffect(() => {
+    if (!isLoggedIn) {
+      return;
+    }
+    axios
+      .get(`${process.env.REACT_APP_SERVER}/api/fridge`)
+      .then((response) => {
+        if (response.data.length > 0) {
+          setIngredients(response.data);
+        }
+      })
+      .catch((error) => console.error("Error loading saved fridge:", error));
+  }, [isLoggedIn]);
 
   const handleInputChange = (index, value) => {
     const updatedIngredients = [...ingredients];
@@ -29,38 +48,53 @@ const MyFridge = () => {
     setIngredients(updatedIngredients);
   };
 
-  const handleSubmit = async () => {
+  const fetchRecipes = async (page) => {
     setIsLoading(true);
     setError(null);
     try {
       const response = await axios.get(`${process.env.REACT_APP_SERVER}/api/myfridge`, {
         params: {
-          ingredients: ingredients.join(","),
-          page: currentPage,
+          ingredients: ingredients.filter((i) => i.trim() !== "").join(","),
+          page,
           limit: ITEMS_PER_PAGE
         }
       });
-      const recipes = response.data;
-      if (!Array.isArray(recipes)) {
-        throw new Error('Invalid response structure');
-      }
-      const recipeCards = recipes.map((recipe, index) => (
-        <RecipeCard key={index} {...recipe} />
+      const { recipes, totalPages: pages } = response.data;
+      const recipeCards = recipes.map((recipe) => (
+        <RecipeCard key={recipe.id} {...recipe} />
       ));
       setRecommendedRecipeCards(recipeCards);
-      setTotalPages(1); // Adjust this as needed
+      setTotalPages(pages);
     } catch (error) {
       console.error("Error:", error);
-      setError("An error occurred while fetching recipes.");
+      setError(error.response?.data?.message || "An error occurred while fetching recipes.");
     } finally {
       setIsLoading(false);
     }
-  };  
-  
+  };
+
+  const handleSubmit = async () => {
+    setCurrentPage(1);
+    await fetchRecipes(1);
+  };
+
+  const handleSaveFridge = async () => {
+    setIsSaving(true);
+    try {
+      await axios.put(`${process.env.REACT_APP_SERVER}/api/fridge`, {
+        ingredients: ingredients.filter((i) => i.trim() !== ""),
+      });
+    } catch (error) {
+      console.error("Error saving fridge:", error);
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const handlePageChange = (page) => {
     if (page > 0 && page <= totalPages) {
       setCurrentPage(page);
-      handleSubmit(); // Re-fetch recipes for the new page
+      fetchRecipes(page);
     }
   };
 
@@ -128,6 +162,16 @@ const MyFridge = () => {
       >
         Submit
       </button>
+      {isLoggedIn && (
+        <button
+          type="button"
+          className="bg-black text-white px-4 py-2 rounded-full ml-2"
+          onClick={handleSaveFridge}
+          disabled={isSaving}
+        >
+          {isSaving ? "Saving..." : "Save my fridge"}
+        </button>
+      )}
       {isLoading ? (
         <div className="skeleton-wrapper my-8">
           <div className="skeleton skeleton-image mb-4"></div>
