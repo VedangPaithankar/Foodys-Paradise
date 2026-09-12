@@ -40,8 +40,8 @@ export default function CustomCarousel() {
         <div className="relative">
           <div className="absolute -top-4 -right-4 w-full h-full rounded-[2rem] bg-saffron/25 -z-10 hidden md:block" />
           <img
-            src="/images/hero.jpg"
-            alt="A festive Indian meal, freshly served"
+            src="/images/modak-hero.jpg"
+            alt="Modak drizzled with ghee, ready to serve"
             className="w-full h-[260px] md:h-[440px] object-cover rounded-[2rem] shadow-xl"
           />
         </div>
