@@ -11,7 +11,7 @@ const NavLink = ({ to, onClick, children }) => {
         <Link
             to={to}
             onClick={onClick}
-            className={`nav-link-underline no-underline font-medium mb-4 md:mb-0 md:mr-8 last:mr-0 ${isActive ? 'text-paprika active' : 'text-ink'}`}
+            className={`nav-link-underline no-underline font-medium whitespace-nowrap mb-4 md:mb-0 md:mr-8 last:mr-0 ${isActive ? 'text-paprika active' : 'text-ink'}`}
         >
             {children}
         </Link>
@@ -38,9 +38,9 @@ function Navbar() {
     };
 
     return (
-        <nav className="font-sans bg-paper/95 backdrop-blur-sm border-b border-sand px-4 py-3 md:px-10 md:py-4 z-50 fixed top-0 w-full">
-            <div className="max-w-6xl mx-auto flex md:flex-row flex-col items-center">
-                <div className="flex justify-between items-center w-full">
+        <nav className="font-sans bg-paper border-b border-sand px-4 py-3 md:px-10 md:py-4 z-50 fixed top-0 w-full">
+            <div className="max-w-6xl mx-auto flex md:flex-row flex-col items-center md:justify-between">
+                <div className="flex justify-between items-center w-full md:w-auto">
                     <Link to="/" className="flex items-center gap-3 no-underline" onClick={handleLinkClick}>
                         <img src={Logo} alt="Foodys Paradise" className="h-11 md:h-14" />
                         <span className="hidden sm:block font-display text-2xl md:text-3xl text-ink tracking-wide">
@@ -57,7 +57,7 @@ function Navbar() {
                 </div>
                 <div
                     className={`w-full md:w-auto md:mt-0 mt-4 text-lg md:text-base md:flex md:items-center ${
-                        isMobileMenuOpen ? 'flex flex-col items-start gap-1' : 'hidden'
+                        isMobileMenuOpen ? 'flex flex-col items-center gap-1' : 'hidden'
                     }`}
                 >
                     <NavLink to="/" onClick={handleLinkClick}>Home</NavLink>
@@ -68,7 +68,7 @@ function Navbar() {
                             <NavLink to="/favorites" onClick={handleLinkClick}>Favorites</NavLink>
                             <button
                                 onClick={handleLogout}
-                                className="nav-link-underline text-ink-light font-medium bg-transparent border-0 cursor-pointer p-0 mb-4 md:mb-0"
+                                className="nav-link-underline text-ink-light font-medium whitespace-nowrap bg-transparent border-0 cursor-pointer p-0 mb-4 md:mb-0"
                             >
                                 Log out
                             </button>
@@ -79,7 +79,7 @@ function Navbar() {
                             <Link
                                 to="/signup"
                                 onClick={handleLinkClick}
-                                className="no-underline bg-paprika hover:bg-paprika-dark text-white font-medium px-4 py-1.5 rounded-full transition-colors"
+                                className="no-underline whitespace-nowrap bg-paprika hover:bg-paprika-dark text-white font-medium px-4 py-1.5 rounded-full transition-colors"
                             >
                                 Sign up
                             </Link>
