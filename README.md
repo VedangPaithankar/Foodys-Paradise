@@ -16,14 +16,18 @@ Originally built on the MERN stack; the backend and recommendation engine were l
 | Piece | Stack | Directory |
 |---|---|---|
 | Frontend | React, Tailwind CSS | [`frontend/`](./frontend) |
-| Backend API | Java 17, Spring Boot, Spring Security (JWT), PostgreSQL, Flyway | [`backend-java/`](./backend-java) |
+| Backend API | Java 17, Spring Boot, Spring Security (JWT), PostgreSQL, Flyway | [`backend/`](./backend) |
 | ML recommender | Python, FastAPI, scikit-learn (TF-IDF + cosine similarity) | [`ml-service/`](./ml-service) |
-| Legacy backend | Node.js, Express, MongoDB — kept for historical reference only, no longer maintained | [`FoodysParadise - BackEnd/`](./FoodysParadise%20-%20BackEnd) |
 
-All three active services run via `docker-compose.yml` at the repo root:
+The original Node/Express/MongoDB backend lived alongside this one on the
+`java-ml-rebuild` branch as a reference during the rewrite; it's been
+removed from this branch now that the rewrite is complete, but is still
+present in full on `main`.
+
+All three services run via `docker-compose.yml` at the repo root:
 
 ```bash
-docker compose up -d          # postgres (5435), backend-java (8081), ml-service (8000)
+docker compose up -d          # postgres (5435), backend (8081), ml-service (8000)
 cd frontend && npm install && npm start   # React dev server (3000)
 ```
 
