@@ -1,25 +1,18 @@
 import React from 'react';
 
 const FormattedIngredients = ({ stepsString }) => {
-  const [ingredientsString, ...steps] = stepsString.split('\n').map(item => item.trim()).filter(item => item !== '');
+  const [ingredientsString] = stepsString.split('\n').map(item => item.trim()).filter(item => item !== '');
+  const ingredients = (ingredientsString || '').split(',').map(item => item.trim()).filter(Boolean);
 
   return (
-    <div className='custom-font'>
-      <ol>
-        {ingredientsString.split(',').map((ingredient, index) => (
-          <li className='custom-font text-xs md:text-base mb-2' key={index}>
-            {ingredient.trim()}
-          </li>
-        ))}
-      </ol>
-      <ol>
-        {steps.map((step, index) => (
-          <li className='custom-font' key={index}>
-            {index + 1}) {step}
-          </li>
-        ))}
-      </ol>
-    </div>
+    <ul className="space-y-2.5">
+      {ingredients.map((ingredient, index) => (
+        <li key={index} className="flex items-start gap-3 font-sans text-ink text-[15px] md:text-base">
+          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-paprika shrink-0" aria-hidden="true" />
+          {ingredient}
+        </li>
+      ))}
+    </ul>
   );
 };
 

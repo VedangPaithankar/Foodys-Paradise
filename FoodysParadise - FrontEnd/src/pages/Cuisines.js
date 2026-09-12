@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard';
 import RecipeCardSkeleton from '../components/RecipeCardSkeleton';
-import axios from 'axios';
+import Pagination from '../components/Pagination';
 import Footer from '../components/Footer';
+import axios from 'axios';
 
 const CuisineRecipes = () => {
     const { cuisine } = useParams();
@@ -11,7 +12,7 @@ const CuisineRecipes = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
-    const itemsPerPage = 10; // Number of recipes per page
+    const itemsPerPage = 12;
 
     useEffect(() => {
         setIsLoading(true);
@@ -36,127 +37,31 @@ const CuisineRecipes = () => {
         }
     };
 
-    const generatePageButtons = () => {
-        const buttons = [];
-        const isSmallScreen = window.innerWidth < 768;
-        const maxVisibleButtons = isSmallScreen ? 2 : 4; // Adjust based on screen size
-    
-        // Previous button
-        if (currentPage > 1) {
-            buttons.push(
-                <button
-                    key="prev"
-                    className="button py-1 px-[10px] md:px-4 rounded bg-yellow-300"
-                    onClick={() => handlePageChange(currentPage - 1)}
-                >
-                    Prev
-                </button>
-            );
-        }
-    
-        // First page button
-        if (currentPage > 1) {
-            buttons.push(
-                <button
-                    key="first"
-                    className={`button py-1 px-[10px] md:px-4 rounded bg-yellow-300 ${currentPage === 1 ? 'bg-yellow-500' : ''}`}
-                    onClick={() => handlePageChange(1)}
-                >
-                    1
-                </button>
-            );
-    
-            if (currentPage > 3) {
-                buttons.push(
-                    <button
-                        key="ellipsis-1"
-                        className="button py-1 px-4 rounded bg-yellow-300 cursor-default"
-                        disabled
-                    >
-                        ...
-                    </button>
-                );
-            }
-        }
-    
-        // Page numbers around the current page
-        for (let i = Math.max(currentPage - maxVisibleButtons, 2); i <= Math.min(currentPage + maxVisibleButtons, totalPages - 1); i++) {
-            buttons.push(
-                <button
-                    key={i}
-                    className={`button py-1 px-[10px] md:px-4 rounded bg-yellow-300 ${currentPage === i ? 'bg-yellow-500' : ''}`}
-                    onClick={() => handlePageChange(i)}
-                >
-                    {i}
-                </button>
-            );
-        }
-    
-        // Ellipses and last page button
-        if (currentPage < totalPages - 2) {
-            buttons.push(
-                <button
-                    key="ellipsis-2"
-                    className="button py-1 px-4 rounded bg-yellow-300 cursor-default"
-                    disabled
-                >
-                    ...
-                </button>
-            );
-        }
-    
-        // Last page button
-        if (totalPages > 1) {
-            buttons.push(
-                <button
-                    key="last"
-                    className={`button py-1 px-[10px] md:px-4 rounded bg-yellow-300 ${currentPage === totalPages ? 'bg-yellow-500' : ''}`}
-                    onClick={() => handlePageChange(totalPages)}
-                >
-                    {totalPages}
-                </button>
-            );
-        }
-    
-        // Next button
-        if (currentPage < totalPages) {
-            buttons.push(
-                <button
-                    key="next"
-                    className="button py-1 px-4 rounded bg-yellow-300"
-                    onClick={() => handlePageChange(currentPage + 1)}
-                >
-                    Next
-                </button>
-            );
-        }
-    
-        return buttons;
-    };
-
     return (
-        <>
-            <div className="mt-[100px] md:mt-[60px]">
-                <h2 className='ml-10 mt-4 custom-font'>Recipes for {cuisine} Cuisine</h2>
+        <div className="pt-[76px] bg-paper min-h-screen">
+            <div className="max-w-6xl mx-auto px-5 md:px-10 pt-8">
+                <h1 className="font-serif text-2xl md:text-3xl text-ink mb-6">Recipes for {cuisine}</h1>
                 {isLoading ? (
-                    <div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {Array.from({ length: itemsPerPage }).map((_, index) => (
                             <RecipeCardSkeleton key={index} />
                         ))}
                     </div>
-                ) : (
-                    <div>
+                ) : recipes.length > 0 ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {recipes.map(recipe => (
                             <RecipeCard key={recipe.id} {...recipe} />
                         ))}
                     </div>
+                ) : (
+                    <p className="font-sans text-ink-light text-center py-10">
+                        No {cuisine} recipes found yet.
+                    </p>
                 )}
-                <div className="flex justify-center gap-2 text-xs md:text-xl my-8">
-                    {generatePageButtons()}
-                </div>
+                <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             </div>
             <Footer />
-        </>
+        </div>
     );
 };
 

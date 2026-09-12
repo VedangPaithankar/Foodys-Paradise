@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import CustomCarousel from './components/CustomCarousal';
+import CustomCarousel from './components/CustomCarousel';
 import PopularCuisines from './components/PopularCuisines';
 import RecipeCard from './components/RecipeCard';
 import Footer from './components/Footer';
@@ -120,15 +120,17 @@ export default function App() {
 
 function Home() {
   return (
-    <div className="mt-[80px]">
+    <div className="pt-[76px] bg-paper">
       <CustomCarousel />
       <PopularCuisines />
-      <h2 className="custom-font ml-5 md:ml-[75px] mt-10 mb-5">Handpicked Recommendations</h2>
-      <div className='mx-auto w-[96%]'>
-        <RecipeCard {...Recipesarray[0]} />
-        <RecipeCard {...Recipesarray[1]} />
-        <RecipeCard {...Recipesarray[2]} />
-      </div>
+      <section className="max-w-6xl mx-auto px-5 md:px-10 py-10">
+        <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6">Handpicked Recommendations</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <RecipeCard {...Recipesarray[0]} />
+          <RecipeCard {...Recipesarray[1]} />
+          <RecipeCard {...Recipesarray[2]} />
+        </div>
+      </section>
       <Footer />
     </div>
   );

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
 import RecipeCardSkeleton from "../components/RecipeCardSkeleton";
+import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
 import { useAuth } from "../context/AuthContext";
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 12;
 
 const Favorites = () => {
   const { isLoggedIn } = useAuth();
@@ -33,47 +34,37 @@ const Favorites = () => {
 
   if (!isLoggedIn) {
     return (
-      <div className="custom-font mt-[100px] p-4 mx-auto w-[90%]">
-        <p className="md:text-[30px] font-bold">Log in to see your favorite recipes.</p>
+      <div className="pt-[76px] bg-paper min-h-screen flex items-center justify-center text-center px-5">
+        <p className="font-serif text-2xl text-ink">Log in to see your favorite recipes.</p>
       </div>
     );
   }
 
   return (
-    <>
-      <div className="mt-[100px] md:mt-[60px]">
-        <h2 className="ml-10 mt-4 custom-font">Your Favorites</h2>
+    <div className="pt-[76px] bg-paper min-h-screen">
+      <div className="max-w-6xl mx-auto px-5 md:px-10 pt-8">
+        <h1 className="font-serif text-2xl md:text-3xl text-ink mb-6">Your Favorites</h1>
         {isLoading ? (
-          <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
               <RecipeCardSkeleton key={index} />
             ))}
           </div>
         ) : recipes.length === 0 ? (
-          <p className="custom-font ml-10">No favorites yet -- tap the heart on any recipe to save it here.</p>
+          <p className="font-sans text-ink-light">
+            No favorites yet &mdash; tap the heart on any recipe to save it here.
+          </p>
         ) : (
-          <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {recipes.map((recipe) => (
-              <RecipeCard key={recipe.id} {...recipe} />
+              <RecipeCard key={recipe.id} {...recipe} isFavorited />
             ))}
           </div>
         )}
-        {totalPages > 1 && (
-          <div className="flex justify-center gap-2 my-8">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <button
-                key={page}
-                className={`py-2 px-4 rounded ${page === currentPage ? "bg-yellow-500" : "bg-yellow-300"} mx-1`}
-                onClick={() => setCurrentPage(page)}
-              >
-                {page}
-              </button>
-            ))}
-          </div>
-        )}
+        <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
