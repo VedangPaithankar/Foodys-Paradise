@@ -1,0 +1,6 @@
+# OS/editor cruft that doesn't belong to any one subproject
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
