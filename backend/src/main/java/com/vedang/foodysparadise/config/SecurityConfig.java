@@ -1,6 +1,7 @@
 package com.vedang.foodysparadise.config;
 
 import com.vedang.foodysparadise.auth.JwtAuthFilter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -14,25 +15,36 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
 public class SecurityConfig {
+
+    // Comma-separated list, defaulting to the local CRA dev server. In
+    // deployment this is set via the ALLOWED_ORIGINS env var to the real
+    // frontend origin (e.g. https://foodysparadise.vercel.app) -- it can't
+    // stay hardcoded to localhost once the frontend and backend live on
+    // different real domains.
+    @Value("${app.cors.allowed-origins:http://localhost:3000}")
+    private String allowedOrigins;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // The CRA frontend (localhost:3000) is a different origin from the API
-    // (localhost:8081) -- without this, the browser blocks every request at
-    // the CORS preflight stage even though curl/server-to-server calls work
-    // fine (CORS is a browser-only enforcement, which is why this wasn't
-    // caught until the app was actually driven in a real browser).
+    // The CRA frontend is a different origin from the API -- without this,
+    // the browser blocks every request at the CORS preflight stage even
+    // though curl/server-to-server calls work fine (CORS is a browser-only
+    // enforcement, which is why this wasn't caught until the app was
+    // actually driven in a real browser).
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:3000"));
+        config.setAllowedOrigins(Arrays.stream(allowedOrigins.split(","))
+                .map(String::trim)
+                .toList());
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
 
