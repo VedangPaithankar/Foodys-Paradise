@@ -6,6 +6,8 @@ A recipe discovery app: ~6,000 recipes, cuisine browsing, full-text search, save
 
 Originally shipped as a MERN app. This branch is a from-scratch rewrite of the backend and recommendation engine (Java/Spring Boot + PostgreSQL, plus a separate Python ML microservice) and a full visual redesign of the frontend — see [Branches](#branches) and [Rebuild notes](#rebuild-notes) below for why and what changed.
 
+**Live:** [foodys-paradise.vercel.app](https://foodys-paradise.vercel.app) (frontend) · [foodys-paradise.onrender.com](https://foodys-paradise.onrender.com) (backend API, free-tier Render — first request may take a few seconds to wake up) · [foodys-paradise-1.onrender.com/docs](https://foodys-paradise-1.onrender.com/docs) (ML service, FastAPI's own interactive docs)
+
 ## Branches
 
 - **`main`** — the original MERN (MongoDB · Express · React · Node) version. Kept exactly as it was, untouched by any of the rebuild work, so it's a clean diff base against everything below.
